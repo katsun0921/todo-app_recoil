@@ -1,7 +1,7 @@
 import {
   useRecoilState,
 } from 'recoil';
-import { todoListFilterState } from '../states/atoms';
+import { menuListFilterState } from '../states/atoms';
 
 interface IUpdateFilterChangeEventHandler {
   target: {
@@ -9,8 +9,8 @@ interface IUpdateFilterChangeEventHandler {
   }
 }
 
-function TodoListFilters() {
-  const [filter, setFilter] = useRecoilState(todoListFilterState);
+function MenuListFilters() {
+  const [filter, setFilter] = useRecoilState(menuListFilterState);
 
   const updateFilter = ({target: {value}}:IUpdateFilterChangeEventHandler) => {
     setFilter(value);
@@ -28,4 +28,4 @@ function TodoListFilters() {
   );
 }
 
-export default TodoListFilters;
+export default MenuListFilters;

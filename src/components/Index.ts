@@ -1,5 +1,4 @@
-export { default as TodoItem } from './TodoItem';
-export { default as TodoItemCreator } from './TodoItemCreator';
-export { default as TodoList } from './TodoList';
-export { default as TodoListFilters } from './TodoListFilters';
-export { default as TodoListStats } from './TodoListStats';
+export { default as MenuItem } from './MenuItem';
+export { default as MenuList } from './MenuList';
+export { default as MenuListFilters } from './MenuListFilters';
+export { default as MenuListStats } from './MenuListStats';

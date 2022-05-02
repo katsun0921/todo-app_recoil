@@ -1,11 +1,11 @@
-import { MenuItem, MenuSelect,  MenuListStats, MenuListFilters  } from './Index';
+import { MenuItem, MenuSelect,  MenuListStats, MenuListSort  } from './Index';
 
 const MenuList = () => {
 
   return (
       <>
         <MenuSelect />
-        <MenuListFilters />
+        <MenuListSort />
         <MenuItem />
         <MenuListStats />
       </>

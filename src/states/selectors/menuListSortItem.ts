@@ -1,6 +1,6 @@
-import { selector, useRecoilValue } from 'recoil';
+import { selector } from 'recoil';
 import {
-  menuListFilterState,
+  menuListSortState,
   type TMenuListState,
   MenuListValues,
   MENU_LIST_STATE,
@@ -76,13 +76,13 @@ const compareMenuList = (arr: TMenuListState[],value: TCompareValue, type: TComp
   return sortMenuItemList;
 }
 
-export const menuListFilterItemState = selector({
-  key: 'MenuListFilterItem',
+export const menuListSortItemState = selector({
+  key: 'MenuListSortItem',
   get: ({get}) => {
-    const filter = get(menuListFilterState);
+    const sort = get(menuListSortState);
     const menuList = get(menuListItemState);
 
-    switch (filter) {
+    switch (sort) {
       case MENU_LIST_STATE:
         return compareMenuAndMenuState(menuList);
       case MENU_TEXT:

@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { type TMenuListState, menuListState } from '../states/atoms';
-import { menuListFilterItemState } from '../states/selectors';
+import { menuListSortItemState } from '../states/selectors';
 
 const ADD = 'add';
 const SUBTRACT = 'subtract';
@@ -39,7 +39,7 @@ const changeMenuItem = (menuList: IChangeMenuListProps) => {
 
 const MenuItem = () => {
   const [menuList, setMenuList] = useRecoilState(menuListState);
-  const menuFilterList = useRecoilValue(menuListFilterItemState);
+  const menuSortList = useRecoilValue(menuListSortItemState);
 
   const addItem = (key: TMenuListState['key']) => {
     const newList: TMenuListState[] = changeMenuItem({
@@ -65,7 +65,7 @@ const MenuItem = () => {
   };
 
   return (
-    <div>{menuFilterList.map((listItem) => {
+    <div>{menuSortList.map((listItem) => {
       return (
         <div key={listItem.key}>
           <p>{listItem.text}</p>

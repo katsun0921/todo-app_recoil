@@ -7,12 +7,12 @@ export const MENU_TOTAL_PRICE_DOWN = 'menu_total_price_down';
 export const MENU_COUNT_UP = 'menu_count_up';
 export const MENU_COUNT_DOWN = 'menu_count_down';
 
-export type TMenuListFilter = {
+export type TMenuListSort = {
   text: string;
   value: string;
 };
 
-export const menuListFilterValues: TMenuListFilter[] = [
+export const menuListSortValues: TMenuListSort[] = [
   {
     text: 'メニューリスト順',
     value: MENU_LIST_STATE
@@ -39,7 +39,7 @@ export const menuListFilterValues: TMenuListFilter[] = [
   },
 ];
 
-export const menuListFilterState = atom<string>({
-  key: 'MenuListFilter',
+export const menuListSortState = atom<string>({
+  key: 'MenuListSort',
   default: MENU_LIST_STATE
 });

@@ -1,6 +1,4 @@
-import {
-    useRecoilState,
-} from 'recoil';
+import { useRecoilState } from 'recoil';
 import { type TMenuListState, menuListState } from '../states/atoms';
 
 const ADD = 'add';
@@ -74,13 +72,9 @@ const MenuItem = () => {
     setMenuList(newList);
   }
 
-  const deleteItem = () => {
-    const newList: TMenuListState[] = removeItemAtIndex({
-      arr: menuList,
-      index: 0
-    });
-
-    setMenuList(newList);
+  const deleteItem = (key: TMenuListState['key']) => {
+    const newMenuList: TMenuListState[] = menuList.filter((menuItem: TMenuListState) => menuItem.key !== key);
+    setMenuList(newMenuList);
   };
 
   return (
@@ -90,7 +84,7 @@ const MenuItem = () => {
           <p>{listItem.text}</p>
           <button onClick={() => addItem(listItem.key)}>+</button>{listItem.count}<button onClick={() => reduceItem(listItem.key)}>-</button>
           <p>{totalMenuPrice(listItem.key)}円</p>
-          <button onClick={deleteItem}>Delete</button>
+          <button onClick={() => deleteItem(listItem.key)}>Delete</button>
         </div>
         )
       }

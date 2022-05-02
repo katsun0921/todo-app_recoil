@@ -1,25 +1,25 @@
 import {
     useRecoilState,
 } from 'recoil';
-import { todoListState } from '../states/atoms';
+import { type TTodoListState,todoListState } from '../states/atoms';
 
 interface IReplaceItemAtIndexProps {
-  arr: any[],
+  arr: TTodoListState[],
   index: number,
-  newValue: any
+  newValue: TTodoListState
 }
 
 interface IRemoveItemAtIndexProps {
-  arr: any[],
+  arr: TTodoListState[],
   index: number
 }
 
-function TodoItem({item}: {item: any}) {
+function TodoItem({item}: {item: TTodoListState}) {
   const [todoList, setTodoList] = useRecoilState(todoListState);
   const index = todoList.findIndex((listItem) => listItem === item);
 
-  const editItemText = ({target: {value}}: {target: {value: any} }) => {
-      const newList: any = replaceItemAtIndex({
+  const editItemText = ({target: {value}}: {target: {value: string} }) => {
+      const newList: TTodoListState[] = replaceItemAtIndex({
         arr: todoList,
         index,
         newValue: {
@@ -32,7 +32,7 @@ function TodoItem({item}: {item: any}) {
   };
 
   const toggleItemCompletion = () => {
-      const newList: any = replaceItemAtIndex({
+      const newList: TTodoListState[] = replaceItemAtIndex({
         arr: todoList,
         index,
         newValue: {
@@ -45,16 +45,16 @@ function TodoItem({item}: {item: any}) {
   };
 
   const deleteItem = () => {
-      const newList: any = removeItemAtIndex({
-        arr: todoList,
-        index
-      });
+    const newList: TTodoListState[] = removeItemAtIndex({
+      arr: todoList,
+      index
+    });
 
-      setTodoList(newList);
+    setTodoList(newList);
   };
 
   return (
-      <div>
+    <div>
       <input type="text" value={item.text} onChange={editItemText} />
       <input
           type="checkbox"
@@ -62,7 +62,7 @@ function TodoItem({item}: {item: any}) {
           onChange={toggleItemCompletion}
       />
       <button onClick={deleteItem}>X</button>
-      </div>
+    </div>
   );
 }
 

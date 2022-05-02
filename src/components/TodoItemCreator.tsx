@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   useSetRecoilState,
 } from 'recoil';
@@ -18,7 +18,7 @@ function TodoItemCreator() {
     setTodoList((oldTodoList) => [
       ...oldTodoList,
       {
-        id: getId(),
+        id: getId(oldTodoList.length),
         text: inputValue,
         isComplete: false
       }
@@ -40,8 +40,7 @@ function TodoItemCreator() {
 }
 
 // utility for creating unique Id
-let id = 0;
-function getId() {
+function getId(id = 0) {
   return id++;
 }
 

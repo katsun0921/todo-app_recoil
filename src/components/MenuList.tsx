@@ -1,19 +1,13 @@
-import {
-  useRecoilValue,
-} from 'recoil';
-import { menuListState } from '../states/atoms';
 import { MenuItem, MenuSelect,  MenuListStats, MenuListFilters  } from './Index';
 
-function MenuList() {
-    const menuList = useRecoilValue(menuListState);
+const MenuList = () => {
 
     return (
       <>
-        {/* <MenuListStats />
-        <MenuListFilters /> */}
         <MenuSelect />
-
+        {/*<MenuListFilters /> */}
         <MenuItem />
+        <MenuListStats />
       </>
     );
   }

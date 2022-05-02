@@ -4,20 +4,10 @@ import { type TMenuListState, menuListState } from '../states/atoms';
 const ADD = 'add';
 const REDUCE = 'reduce';
 
-interface IRemoveItemAtIndexProps {
-  arr: TMenuListState[],
-  index: number
-}
-
 interface IChangeMenuListProps {
   arr: TMenuListState[],
   type: string;
   key: TMenuListState['key'];
-}
-
-const removeItemAtIndex = (removeItemPops: IRemoveItemAtIndexProps) => {
-  const {arr, index} = removeItemPops;
-  return [...arr.slice(0, index), ...arr.slice(index + 1)];
 }
 
 const changeMenuItem = (menuList: IChangeMenuListProps) => {

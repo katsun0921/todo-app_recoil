@@ -5,12 +5,14 @@ const MenuListStats = () => {
   const { totalCount, totalPrice } = useRecoilValue(menuListStatsState);
 
   return (
-    <div>
-      <p>お会計</p>
-    <ul>
-      <li>Total items: {totalCount}</li>
-      <li>Total price: {totalPrice}円</li>
-    </ul>
+    <div className="d-flex justify-content-end">
+      <div>
+      <h2>お会計</h2>
+      <ul>
+        <li>Total items: {totalCount}</li>
+        <li>Total price: {totalPrice}円</li>
+      </ul>
+      </div>
     </div>
   );
 }

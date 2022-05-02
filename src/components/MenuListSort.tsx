@@ -18,12 +18,14 @@ const MenuListSort = () => {
   if (menuListItem.length === 0) return null;
 
   return (
-    <>
-      選択中のメニューをソート:
-      <select value={sort} onChange={updateSort}>
+    <div className="input-group mb-3">
+      <div className="input-group-prepend">
+        <label className="input-group-text" htmlFor="menuSort">選択中のメニューをソート:</label>
+      </div>
+      <select id="menuSort" className="custom-select" value={sort} onChange={updateSort}>
       {menuListSortValues.map((menuValue, i) => (<option key={i} value={menuValue.value}>{menuValue.text}</option>))}
       </select>
-    </>
+    </div>
   );
 }
 

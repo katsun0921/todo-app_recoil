@@ -37,12 +37,14 @@ const MenuSelect = () => {
 
   return (
     <div>
-      <h2>メニューを選択してください</h2>
-      <ul>
+      <h1>メニューを選択してください</h1>
+      <ul className="mb-4">
         {MenuListValues.map((menuItem) => {
           return (
-            <li key={menuItem.key}>
-              <label><input type="checkbox" value={menuItem.key} onChange={(e) => { handleCheckedMenuItem(e) }} checked={isCheckedMenuList(menuItem.key)} />
+            <li key={menuItem.key} className="input-group">
+              <label className="input-group-text w-100">
+                <input className="form-check-input mt-0" type="checkbox" value={menuItem.key} onChange={(e) => { handleCheckedMenuItem(e) }} checked={isCheckedMenuList(menuItem.key)}
+                />
               {menuItem.text} 1個 {menuItem.price}円</label>
             </li>
           )

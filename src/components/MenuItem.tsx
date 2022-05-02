@@ -65,18 +65,32 @@ const MenuItem = () => {
   };
 
   return (
-    <div>{menuSortList.map((listItem) => {
+    <table className="table">
+      <thead className="thead-dark">
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">個数(+と-ボタンで個数が増減します)</th>
+          <th scope="col">トータルの価格</th>
+          <th scope="col">商品を削除</th>
+        </tr>
+      </thead>
+      <tbody>
+      {menuSortList.map((listItem) => {
       return (
-        <div key={listItem.key}>
-          <p>{listItem.text}</p>
-          <button onClick={() => addItem(listItem.key)}>+</button>{listItem.count}<button onClick={() => subtractItem(listItem.key)}>-</button>
-          <p>{listItem.totalPrice}円</p>
-          <button onClick={() => deleteItem(listItem.key)}>Delete</button>
-        </div>
+        <tr key={listItem.key}>
+          <th scope="row">{listItem.text}</th>
+          <td>
+            <button className="btn" onClick={() => addItem(listItem.key)}>+</button>
+            {listItem.count}
+            <button className="btn" onClick={() => subtractItem(listItem.key)}>-</button></td>
+          <td>{listItem.totalPrice}円</td>
+          <td><button className="btn btn-danger" onClick={() => deleteItem(listItem.key)}>Delete</button></td>
+        </tr>
         )
       }
     )}
-    </div>
+    </tbody>
+    </table>
   );
 }
 

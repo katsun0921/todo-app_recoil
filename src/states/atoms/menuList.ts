@@ -1,6 +1,4 @@
-import {
-  atom,
-} from 'recoil';
+import { atom } from 'recoil';
 
 export type TMenuListState = {
   key: string;
@@ -8,6 +6,7 @@ export type TMenuListState = {
   price: number;
   count: number;
   isChecked: boolean;
+  totalPrice: number;
 };
 
 export const MenuListValues: TMenuListState[] = [
@@ -16,35 +15,40 @@ export const MenuListValues: TMenuListState[] = [
     text: "コーヒー",
     price: 480,
     count: 0,
-    isChecked: false
+    isChecked: false,
+    totalPrice: 0
   },
   {
     key: 'tea',
     text: "紅茶",
     price: 280,
     count: 0,
-    isChecked: false
+    isChecked: false,
+    totalPrice: 0
   },
   {
     key: 'milk',
     text: "ミルク",
     price: 180,
     count: 0,
-    isChecked: false
+    isChecked: false,
+    totalPrice: 0
   },
   {
     key: "coke",
     text: "コーラ",
     price: 190,
     count: 0,
-    isChecked: false
+    isChecked: false,
+    totalPrice: 0
   },
   {
     key: "beer",
     text: "ビール",
     price: 580,
     count: 0,
-    isChecked: false
+    isChecked: false,
+    totalPrice: 0
   }
 ];
 

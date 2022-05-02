@@ -1,8 +1,9 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { type TMenuListState, menuListState } from '../states/atoms';
+import { menuListFilterItemState } from '../states/selectors';
 
 const ADD = 'add';
-const REDUCE = 'reduce';
+const SUBTRACT = 'subtract';
 
 interface IChangeMenuListProps {
   arr: TMenuListState[],
@@ -20,7 +21,7 @@ const changeMenuItem = (menuList: IChangeMenuListProps) => {
         case ADD:
           count += 1;
           break;
-        case REDUCE:
+        case SUBTRACT:
           count = count === 0 ? 0 : count - 1;
           break;
         default:
@@ -38,11 +39,7 @@ const changeMenuItem = (menuList: IChangeMenuListProps) => {
 
 const MenuItem = () => {
   const [menuList, setMenuList] = useRecoilState(menuListState);
-
-  const totalMenuPrice = (key: TMenuListState['key']) => {
-    const menuItem = menuList.find((menuItem) => menuItem.key === key);
-    return menuItem ? menuItem.count * menuItem.price : 0;
-  };
+  const menuFilterList = useRecoilValue(menuListFilterItemState);
 
   const addItem = (key: TMenuListState['key']) => {
     const newList: TMenuListState[] = changeMenuItem({
@@ -53,10 +50,10 @@ const MenuItem = () => {
     setMenuList(newList);
   }
 
-  const reduceItem = (key: TMenuListState['key']) => {
+  const subtractItem = (key: TMenuListState['key']) => {
     const newList: TMenuListState[] = changeMenuItem({
       arr: menuList,
-      type: REDUCE,
+      type: SUBTRACT,
       key
     });
     setMenuList(newList);
@@ -68,12 +65,12 @@ const MenuItem = () => {
   };
 
   return (
-    <div>{menuList.map((listItem) => {
+    <div>{menuFilterList.map((listItem) => {
       return (
         <div key={listItem.key}>
           <p>{listItem.text}</p>
-          <button onClick={() => addItem(listItem.key)}>+</button>{listItem.count}<button onClick={() => reduceItem(listItem.key)}>-</button>
-          <p>{totalMenuPrice(listItem.key)}円</p>
+          <button onClick={() => addItem(listItem.key)}>+</button>{listItem.count}<button onClick={() => subtractItem(listItem.key)}>-</button>
+          <p>{listItem.totalPrice}円</p>
           <button onClick={() => deleteItem(listItem.key)}>Delete</button>
         </div>
         )

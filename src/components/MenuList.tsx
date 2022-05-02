@@ -2,10 +2,10 @@ import { MenuItem, MenuSelect,  MenuListStats, MenuListFilters  } from './Index'
 
 const MenuList = () => {
 
-    return (
+  return (
       <>
         <MenuSelect />
-        {/*<MenuListFilters /> */}
+        <MenuListFilters />
         <MenuItem />
         <MenuListStats />
       </>

@@ -5,7 +5,7 @@ export const menuListStatsState = selector({
   key: 'MenuListStats',
   get: ({get}) => {
     const menuList = get(menuListState);
-    const totalNum = menuList.reduce((sum, element) => {
+    const totalCount = menuList.reduce((sum, element) => {
       return sum + element.count;
     }, 0);
     const totalPrice = menuList.reduce((sum, element) => {
@@ -13,7 +13,7 @@ export const menuListStatsState = selector({
     }, 0);
 
     return {
-      totalNum,
+      totalCount,
       totalPrice
     };
   },

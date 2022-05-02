@@ -1,28 +1,27 @@
-import {
-  useRecoilState,
-} from 'recoil';
-import { menuListFilterState } from '../states/atoms';
-
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { type TMenuListState, menuListFilterState, menuListFilterValues } from '../states/atoms';
+import { menuListItemState } from '../states/selectors';
 interface IUpdateFilterChangeEventHandler {
   target: {
-    value: string;
+    value: TMenuListState['key'];
   }
 }
 
-function MenuListFilters() {
+const MenuListFilters = () => {
   const [filter, setFilter] = useRecoilState(menuListFilterState);
+  const menuListItem = useRecoilValue(menuListItemState);
 
   const updateFilter = ({target: {value}}:IUpdateFilterChangeEventHandler) => {
     setFilter(value);
   };
 
+  if (menuListItem.length === 0) return null;
+
   return (
     <>
-      Filter:
+      選択中のメニューをフィルタ:
       <select value={filter} onChange={updateFilter}>
-        <option value="Show All">All</option>
-        <option value="Show Completed">Completed</option>
-        <option value="Show Uncompleted">Uncompleted</option>
+      {menuListFilterValues.map((menuValue, i) => (<option key={i} value={menuValue.value}>{menuValue.text}</option>))}
       </select>
     </>
   );

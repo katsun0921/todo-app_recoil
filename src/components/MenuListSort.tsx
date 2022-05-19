@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { type TMenuListState, menuListSortState, menuListSortValues } from '../states/atoms';
+import { TMenuListState, menuListSortState, menuListSortValues } from '../states/atoms';
 import { menuListItemState } from '../states/selectors';
 interface IUpdateSortChangeEventHandler {
   target: {

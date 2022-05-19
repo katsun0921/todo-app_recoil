@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { type TMenuListState, menuListState } from '../states/atoms';
+import { TMenuListState, menuListState } from '../states/atoms';
 import { menuListSortItemState } from '../states/selectors';
 
 const ADD = 'add';

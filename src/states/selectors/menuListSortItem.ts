@@ -1,7 +1,7 @@
 import { selector } from 'recoil';
 import {
   menuListSortState,
-  type TMenuListState,
+  TMenuListState,
   MenuListValues,
   MENU_LIST_STATE,
   MENU_TEXT,

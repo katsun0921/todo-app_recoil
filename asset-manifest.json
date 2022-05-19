@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/katsun0921/todo-app_recoil/static/css/main.30f6b863.css",
+    "main.js": "/katsun0921/todo-app_recoil/static/js/main.f26d39de.js",
+    "index.html": "/katsun0921/todo-app_recoil/index.html",
+    "main.30f6b863.css.map": "/katsun0921/todo-app_recoil/static/css/main.30f6b863.css.map",
+    "main.f26d39de.js.map": "/katsun0921/todo-app_recoil/static/js/main.f26d39de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30f6b863.css",
+    "static/js/main.f26d39de.js"
+  ]
+}
